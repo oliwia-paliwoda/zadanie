@@ -1,4 +1,52 @@
 <script setup>
+import {ref, onMounted, nextTick} from "vue";
+import Masonry from "masonry-layout";
+
+const grid = ref(null)
+
+const images =[
+  {id: 1, url: "/Photo_realizacje (1).png"},
+    {id: 2, url: "/Photo_realizacje (2).png"},
+    {id: 3, url: "/Photo_realizacje (3).png"},
+    {id: 4, url: "/Photo_realizacje (5).png"},
+    {id: 5, url: "/Photo_realizacje (6).png"},
+    {id: 6, url: "/Photo_realizacje (7).png"},
+    {id: 7, url: "/Photo_realizacje (8).png"},
+    {id: 8, url: "/Photo_realizacje (9).png"},
+    {id: 9, url: "/Photo_realizacje (10).png"},
+    {id: 10, url: "/Photo_realizacje (11).png"},
+    {id: 11, url: "/Photo_realizacje (12).png"},
+    {id: 12, url: "/Photo_realizacje (13).png"},
+    {id: 13, url: "/Photo_realizacje (14).png"},
+    {id: 14, url: "/Photo_realizacje (15).png"},
+    {id: 15, url: "/Photo_realizacje (16).png"},
+    {id: 16, url: "/Photo_realizacje (17).png"},
+    {id: 17, url: "/Photo_realizacje (18).png"},
+]
+
+const expanded = ref(false)
+
+onMounted(async () => {
+  await nextTick()
+
+  new Masonry(grid.value, {
+    itemSelector: ".grid-item",
+    percentPosition: true,
+    gutter: 0,
+  })
+})
+
+const gridHeight = ref(0)
+
+const expandGrid = () => {
+  expanded.value = !expanded.value
+
+  if (expanded.value) {
+    nextTick(() => {
+      gridHeight.value = grid.value.offsetHeight
+    })
+  }
+}
 
 </script>
 
@@ -32,7 +80,7 @@
 
 
       <!-----------------HERO-------------------------->
-      <div id="hero" class="flex flex-row items-center justify-center bg-[#DCC1AB] w-[100vw] px-12">
+      <div id="hero" class="flex flex-row items-center justify-center bg-[#DCC1AB] w-[100%] px-12">
       <div id="hero-left" class = "flex h-auto w-[53%]">
         <div id="hero-text" class="h-[60%] w-[80%] flex flex-col gap-10">
           <div class="font-[30px] text-[#111111] text-5xl">
@@ -66,7 +114,7 @@
 
 
       <!-------------OFERTA------>
-      <div id="oferta" class="flex flex-col items-center justify-center bg-[#F5F0EC] w-[100vw] h-auto px-12 pt-[120px] gap-[96px]">
+      <div id="oferta" class="flex flex-col items-center justify-center bg-[#F5F0EC] w-[100%] h-auto px-12 pt-[120px] gap-[96px]">
         <div id="oferta-text" class="h-[60%] w-[80%] flex flex-col gap-10">
 
           <div class="font-[30px] text-[#1B5B31] text-sm">
@@ -199,7 +247,7 @@
         </div>
 
         <!---------O FIRMIE---->
-        <div id="firma" class="flex flex-row items-center justify-center bg-[#1B5B31] w-[100vw] px-12">
+        <div id="firma" class="flex flex-row items-center justify-center bg-[#1B5B31] w-[100%] px-12">
 
           <img src="/Photo_o_firmie.png" class="w-[47%]">
 
@@ -237,17 +285,111 @@
 
       <!-----REALIZACJE-->
 
-      <div id="realizacje" class="flex flex-row items-center justify-center bg-[#DCC1AB] w-[100vw] px-12">test</div>
+      <div id="realizacje" class="bg-[#DCC1AB] w-full px-12">
+
+        <div id="realizacje-text" class="flex flex-col items-center gap-2">
+          <div class="text-black text-sm">
+            <p>Realizacje</p>
+          </div>
+
+          <div class="text-black text-xl">
+            <p>Nasze projekty</p>
+          </div>
+        </div>
+
+        <div
+            class="relative overflow-hidden transition-all duration-500"
+            :style="{
+    height: expanded ? gridHeight + 'px' : '120vh'
+  }"
+        >
+          <div ref="grid">
+            <div
+                v-for="image in images"
+                :key="image.id"
+                class="grid-item p-2"
+            >
+              <img
+                  :src="image.url"
+                  class="w-full rounded-lg"
+              />
+            </div>
+          </div>
+
+          <button @click = "expandGrid"
+              class="absolute bottom-[10px] left-1/2 -translate-x-1/2 bg-white px-6 py-2 rounded-lg"
+          >
+            {{ expanded ? 'Zwiń' : 'Rozwiń'}}
+          </button>
+          </div>
 
 
+      </div>
+
+      <!----------INSTAGRAM------------>
+      <div id="insta" class="w-[100%] h-[auto] flex items-center justify-center px-10 py-12 bg-white">
+        <div class="w-[auto] h-[auto] bg-[#1B5B31] flex px-12 py-14 text-white text-xl">
+          <div id="text-area" class="flex flex-col text-xxl">
+            <p>Zostanmy w kontakcie!</p>
+            <p>Znajdziesz nas na <b><i>Instagramie</i></b></p>
+          </div>
+          <div id="text-area-2" class=" gap-4 flex flex-col text-white items-start justify-center">
+            <p>Śledź nasze najnowsze realizacje!</p>
+            <button class="bg-white rounded text-center self-center text-black px-2">Instagram</button>
+          </div>
+        </div>
+      </div>
+
+      <!------FOOTER------------>
+      <div id="footer" class="flex flex-col items-center justify-center bg-black text-white  px-36">
+        <div id="footer-top" class=" w-full flex flex row justify-between items-center py-10">
+          <img src="/giarddesign_white.png" class="w-[114.37px] h-[19px]">
+            <div class="flex flex-row gap-4 items-center justify-center">
+              <p>Daj znać, co możemy dla ciebie zrobić!</p>
+              <button class="bg-[#1B5B31] rounded px-4 text-white">Skontaktuj się z nami</button>
+            </div>
+        </div>
+        <div class="h-[1px] bg-[#F5F0EC] w-full mx-10"></div>
+
+        <div id="socials" class="flex flex-row w-full items-center justify-between py-10 pb-[200px]">
+      <div class="gap-6 flex flex-row">
+        <p>Kontakt</p>
+        <p>Instagram</p>
+        <p>Facebook</p>
+        <p>Linkedin</p>
+      </div>
 
 
+        <div class="gap-6 flex flex-row">
+          <p>000-000-000</p>
+          <p>giarddesign@kontakt.pl</p>
+        </div>
+
+
+      </div>
+
+        <div id="footer-bottom" class="flex flex-row w-full items-center justify-between py-10">
+          <div class="gap-6 flex flex-row">
+            <p>Prawa zastrzeżone © 2022</p>
+          </div>
+
+
+          <div class="gap-6 flex flex-row">
+            <p>Made by</p>
+            <img src="/logo-full-light.png"
+          </div>
+
+
+        </div>
+      </div>
 
 
     </div>
   </template>
 
 <style scoped>
-
+.grid-item {
+  width: 33.333%;
+}
 </style>
 
