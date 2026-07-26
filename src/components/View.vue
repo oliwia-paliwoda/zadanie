@@ -2,11 +2,14 @@
 import {ref, onMounted, nextTick} from "vue";
 import Masonry from "masonry-layout";
 import OfertaElement from "./OfertaElement.vue";
+import Gallery from "./Gallery.vue";
+
 
 const grid = ref(null)
 const ofertaOpen = ref(false);
 const searchOpen = ref(false);
 const mobileMenuOpen = ref(false);
+const photoId = ref(null);
 
 const images =[
   {id: 1, url: "/Photo_realizacje (1).png"},
@@ -56,6 +59,7 @@ const expandGrid = () => {
 </script>
 
   <template>
+    <Gallery v-if="photoId" :photo-id="photoId" @close="photoId = null"></Gallery>
     <div class="w-[full] min-h-screen overflow-y-auto flex flex-col">
 
 
@@ -169,19 +173,19 @@ const expandGrid = () => {
       <div id="hero" class="flex flex-row items-center justify-center bg-[#DCC1AB] w-[100%] px-12">
       <div id="hero-left" class = "flex h-auto w-[53%]">
         <div id="hero-text" class="h-[60%] w-[80%] flex flex-col gap-10">
-          <div class="font-[30px] text-[#111111] text-5xl">
-            <p>Nowoczesna aranżacja
-            Twojego ogrodu</p> </div>
+          <div class="text-[#111111]">
+            <h1>Nowoczesna aranżacja
+            Twojego ogrodu</h1> </div>
 
-          <div class="font-[30px] text-[#111111] text-sm">
-            <p>Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka realizacji. Oferujemy kompleksowy zakres usług z indywidualnym podejściem do każdego projektu.</p>
+          <div class="text-[#111111]">
+            <h3>Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka realizacji. Oferujemy kompleksowy zakres usług z indywidualnym podejściem do każdego projektu.</h3>
           </div>
 
           <div id="buttons-row" class="flex flex-row items-center justify-start gap-6 text-sm">
-          <div id="button" class="bg-[#1B5B31] text-white rounded-xl pt-3 px-6 pb-[14px]">
+          <div id="button" class="bg-[#1B5B31] text-white rounded-3xl pt-3 px-6 pb-[14px]">
             <p> Skontaktuj się z nami</p>
           </div>
-            <div id="button" class="border-[1px] rounded-xl pt-3 px-6 pb-[14px] flex flex-row gap-2 justify-center items-center text-[#1B5B31]">
+            <div id="button" class="border-[1px] rounded-3xl pt-3 px-6 pb-[14px] flex flex-row gap-2 justify-center items-center text-[#1B5B31]">
               <p>Zobacz nasze realizacje</p>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15.9999 7.99529L15.1042 7.09959L8.63636 13.5769L8.63636 1.02988e-07L7.36352 8.78099e-08L7.36352 13.5675L0.895638 7.09959L-6.09397e-05 7.99529L8.00465 16L15.9999 7.99529Z" fill="#1B5B31"/>
@@ -200,18 +204,18 @@ const expandGrid = () => {
 
 
       <!-------------OFERTA------>
-      <div id="oferta" class="flex flex-col items-center justify-center bg-[#F5F0EC] w-[100%] h-auto px-12 pt-[120px] gap-[96px]">
+      <div id="oferta" class="flex flex-col items-center justify-center bg-[#F5F0EC] w-[100%] h-auto px-12 pt-[120px] pb-[160px] gap-[96px]">
         <div id="oferta-text" class="h-[60%] w-[80%] flex flex-col gap-10">
 
           <div class="font-[30px] text-[#1B5B31] text-sm">
             <p>Oferta</p>
           </div>
 
-          <div class="font-[30px] text-[#111111] text-5xl">
-            <p>Działamy kompleksowo</p> </div>
+          <div class="text-[#111111]">
+            <h1>Działamy <i>kompleksowo</i></h1> </div>
 
-          <div class="font-[30px] text-[#111111] text-sm">
-            <p>Oferujemy kompletną obsługę inwestycji terenów zielonych. Projektujemy nowoczesne ogrody przydomowe oraz rezydencjonalne. Stworzymy dla Ciebie projekt, zwizualizujemy go i wcielimy w życie, a na każdym etapie posłużymy radą i wieloletnim doświadczeniem. </p>
+          <div class="text-[#111111]">
+            <h3>Oferujemy kompletną obsługę inwestycji terenów zielonych. Projektujemy nowoczesne ogrody przydomowe oraz rezydencjonalne. Stworzymy dla Ciebie projekt, zwizualizujemy go i wcielimy w życie, a na każdym etapie posłużymy radą i wieloletnim doświadczeniem. </h3>
           </div>
 
             </div>
@@ -276,16 +280,15 @@ const expandGrid = () => {
                 <p>O firmie</p> </div>
 
 
-              <div class="font-[30px] text-[#111111] text-4xl">
-                <p>Nowoczesna aranżacja
-                  Twojego ogrodu</p> </div>
+              <div class="text-[#111111]">
+                <h1>Tworzymy z pasją</h1> </div>
 
-              <div class="font-[30px] text-[#111111] text-sm">
-                <p>Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka realizacji. Oferujemy kompleksowy zakres usług z indywidualnym podejściem do każdego projektu.</p>
+              <div class="text-[#111111]">
+                <h3>Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka realizacji. Oferujemy kompleksowy zakres usług z indywidualnym podejściem do każdego projektu.</h3>
               </div>
 
               <div id="buttons-row" class="flex flex-row items-center justify-start gap-6 text-sm">
-                <div id="button" class="border-[1px] rounded-xl pt-3 px-6 pb-[14px] flex flex-row gap-2 justify-center items-center text-white">
+                <div id="button" class="border-[1px] rounded-3xl pt-3 px-6 pb-[14px] flex flex-row gap-2 justify-center items-center text-white">
                   <p>Poznaj nas bliżej</p>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.99528 -1.20755e-06L7.09959 0.895696L13.5769 7.36358L-7.5502e-07 7.36358L-6.43745e-07 8.63642L13.5675 8.63642L7.09959 15.1043L7.99529 16L16 7.99529L7.99528 -1.20755e-06Z" fill="#F5F0EC"/>
@@ -303,15 +306,16 @@ const expandGrid = () => {
 
       <!-----REALIZACJE-->
 
-      <div id="realizacje" class="bg-[#DCC1AB] w-full px-12">
+      <div id="realizacje" class="relative bg-[#DCC1AB] w-full ">
 
-        <div id="realizacje-text" class="flex flex-col items-center gap-2">
-          <div class="text-black text-sm">
+        <div id="realizacje-text" class="flex flex-col items-start px-12 pt-[120px] pb-[96px] sm:px-[160px] gap-4">
+
+          <div class="text-[14px] text-[#1B5B31]">
             <p>Realizacje</p>
           </div>
 
           <div class="text-black text-xl">
-            <p>Nasze projekty</p>
+            <h1>Nasze <i>projekty</i></h1>
           </div>
         </div>
 
@@ -328,49 +332,58 @@ const expandGrid = () => {
                 class="grid-item p-2"
             >
               <img
+                  @click="photoId = image.id"
                   :src="image.url"
-                  class="w-full rounded-lg"
+                  class="w-full"
               />
             </div>
           </div>
 
           <button @click = "expandGrid"
-              class="absolute bottom-[10px] left-1/2 -translate-x-1/2 bg-white px-6 py-2 rounded-lg"
+              class="absolute flex flex-row items-center gap-2 bottom-[10px] border-[1px] border-[black] left-1/2 -translate-y-1/1 -translate-x-1/2 bg-transprent pt-[12px] px-[22px] pb-[14px] rounded-3xl z-1"
           >
             {{ expanded ? 'Zwiń' : 'Rozwiń'}}
+            <svg :class="expanded ? 'rotate-180' : 'rotate-0'" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 7.99529L15.1043 7.09959L8.63642 13.5769L8.63642 1.02988e-07L7.36358 8.78099e-08L7.36358 13.5675L0.895699 7.09959L9.54553e-08 7.99529L8.00471 16L16 7.99529Z" fill="#111111"/>
+            </svg>
+
           </button>
           </div>
 
+        <div
+            v-if="!expanded"
+            class="absolute inset-0 bg-[linear-gradient(360deg,#DCC1AB_0%,rgba(214,183,158,0)_100%)]"
+        ></div>
 
       </div>
 
       <!----------INSTAGRAM------------>
       <div id="insta" class="w-[100%] h-[auto] flex items-center justify-center px-10 py-12 bg-white">
-        <div class="w-[auto] h-[auto] bg-[#1B5B31] flex px-12 py-14 text-white text-xl">
-          <div id="text-area" class="flex flex-col text-xxl">
-            <p>Zostanmy w kontakcie!</p>
-            <p>Znajdziesz nas na <b><i>Instagramie</i></b></p>
+        <div class="lg:w-[80%] h-[auto] bg-[#1B5B31] flex flex-col lg:flex-row lg:px-24 px-4 py-14 text-white text-xl text-center lg:text-left justify-between">
+          <div id="text-area" class="flex flex-col text-xxl lg:py-26 py-16">
+            <h1>Zostańmy w kontakcie!</h1>
+            <h1>Znajdziesz nas na <b><i>Instagramie.</i></b></h1>
           </div>
-          <div id="text-area-2" class=" gap-4 flex flex-col text-white items-start justify-center">
+          <div id="text-area-2" class=" gap-4 flex flex-col text-white lg:items-start items-center justify-center">
             <p>Śledź nasze najnowsze realizacje!</p>
-            <button class="bg-white rounded text-center self-center text-black px-2">Instagram</button>
+            <button class="bg-white rounded-3xl text-center lg:self-start self-center text-black pt-[12px] px-[22px] pb-[14px]">Instagram</button>
           </div>
         </div>
       </div>
 
       <!------FOOTER------------>
-      <div id="footer" class="flex flex-col items-center justify-center bg-black text-white  px-36">
-        <div id="footer-top" class=" w-full flex flex row justify-between items-center py-10">
+      <div id="footer" class="flex flex-col items-center justify-center bg-black text-white  lg:px-36">
+        <div id="footer-top" class=" w-full flex flex-col lg:flex-row justify-between items-center py-20 gap-4">
           <img src="/giarddesign_white.png" class="w-[114.37px] h-[19px]">
-            <div class="flex flex-row gap-4 items-center justify-center">
+            <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
               <p>Daj znać, co możemy dla ciebie zrobić!</p>
-              <button class="bg-[#1B5B31] rounded px-4 text-white">Skontaktuj się z nami</button>
+              <button class="bg-[#1B5B31] rounded-3xl px-4 text-white pt-[12px] px-[22px] pb-[14px]">Skontaktuj się z nami</button>
             </div>
         </div>
-        <div class="h-[1px] bg-[#F5F0EC] w-full mx-10"></div>
+        <div class="h-[1px] bg-[#F5F0EC] w-[80%] lg:w-full mx-10"></div>
 
-        <div id="socials" class="flex flex-row w-full items-center justify-between py-10 pb-[200px]">
-      <div class="gap-6 flex flex-row">
+        <div id="socials" class="flex flex-col lg:flex-row w-full items-center justify-between py-16 pb-[200px] gap-6">
+      <div class="gap-6 flex flex-col text-center lg:text-start lg:flex-row">
         <p>Kontakt</p>
         <p>Instagram</p>
         <p>Facebook</p>
@@ -378,7 +391,7 @@ const expandGrid = () => {
       </div>
 
 
-        <div class="gap-6 flex flex-row">
+        <div class="gap-6 flex lg:text-start text-center flex-col lg:flex-row">
           <p>000-000-000</p>
           <p>giarddesign@kontakt.pl</p>
         </div>
@@ -386,8 +399,8 @@ const expandGrid = () => {
 
       </div>
 
-        <div id="footer-bottom" class="flex flex-row w-full items-center justify-between py-10">
-          <div class="gap-6 flex flex-row">
+        <div id="footer-bottom" class="flex flex-col lg:flex-row w-full items-center lg:text-start text-center justify-between py-10">
+          <div class="gap-6 flex flex-col lg:flex-row">
             <p>Prawa zastrzeżone © 2022</p>
           </div>
 
@@ -402,12 +415,22 @@ const expandGrid = () => {
       </div>
 
 
+
+
+
+
     </div>
   </template>
 
 <style scoped>
 .grid-item {
-  width: 33.333%;
+  width: 50%;
+}
+
+@media (min-width: 768px) {
+  .grid-item {
+    width: 33.333%;
+  }
 }
 
 .dropdown-enter-active,
