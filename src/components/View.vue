@@ -33,16 +33,19 @@ const images =[
 
 const expanded = ref(false)
 
+import imagesLoaded from "imagesloaded";
+
 onMounted(async () => {
-  await nextTick()
+  await nextTick();
 
-  new Masonry(grid.value, {
-    itemSelector: ".grid-item",
-    percentPosition: true,
-    gutter: 0,
-  })
-})
-
+  imagesLoaded(grid.value, () => {
+    new Masonry(grid.value, {
+      itemSelector: ".grid-item",
+      percentPosition: true,
+      gutter: 0,
+    });
+  });
+});
 const gridHeight = ref(0)
 
 const expandGrid = () => {
