@@ -272,22 +272,27 @@ const expandGrid = () => {
         </div>
 
         <!---------O FIRMIE---->
-        <div id="firma" class="flex flex-row items-center justify-center bg-[#1B5B31] w-[100%] px-12">
+      <div id="firma" class="relative flex bg-[#1B5B31] min-h-[500px]">
 
-          <img src="/Photo_o_firmie.png" class="w-[47%]">
+        <div class="w-[47%] relative">
+          <img
+              src="/Photo_o_firmie.png"
+              class="absolute top-0 right-0 w-full h-full object-cover"
+          >
+        </div>
 
-          <div id="firma-right" class = "flex h-auto w-[53%]">
-            <div id="firma-text" class="h-[60%] w-[80%] flex flex-col gap-10">
+          <div id="firma-right" class = "flex h-auto w-[50%] py-20 pl-24 pr-10">
+            <div id="firma-text" class="h-[60%] w-[100%] flex flex-col">
 
-              <div class="text-white text-sm">
+              <div class="text-white text-sm pb-2">
                 <p>O firmie</p> </div>
 
 
-              <div class="text-[#111111]">
+              <div class="text-white pb-10">
                 <h1>Tworzymy z pasją</h1> </div>
 
-              <div class="text-[#111111]">
-                <h3>Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka realizacji. Oferujemy kompleksowy zakres usług z indywidualnym podejściem do każdego projektu.</h3>
+              <div class="text-white w-[100%] pb-9">
+                <h4>Każdy projekt to nowe wyzwanie. Dlatego nasz zespół tworzą wykwalifikowani projektanci oraz architekci, których zadaniem jest rozpoznanie i realizacja potrzeb każdego Klienta. Nasza specjalizacja to przestrzenie nowoczesne, które charakteryzuje minimalizm, geometria i elegancka prostota. Tworzymy ogrody małoobsługowe, dostosowane do współczesnego trybu życia.</h4>
               </div>
 
               <div id="buttons-row" class="flex flex-row items-center justify-start gap-6 text-sm">
