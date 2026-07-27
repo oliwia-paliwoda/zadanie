@@ -128,7 +128,7 @@ const handleImageClick = (e) => {
     <!-----------------NAVI-------------------------->
     <div
         class="relative flex flex-row justify-between items-center bg-white h-[72px] py-6 px-4 sm:px-8 lg:px-12 w-[100%] z-50">
-      <img class="w-[114.37px] h-[19px]" src="/zadanie/giarddesign.png">
+      <img class="w-[114.37px] h-[19px]" src="giarddesign.png">
       <button
           class="min-[930px]:hidden flex flex-col gap-[5px]"
           @click="mobileMenuOpen = !mobileMenuOpen"
