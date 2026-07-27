@@ -128,7 +128,7 @@ const handleImageClick = (e) => {
     <!-----------------NAVI-------------------------->
     <div
         class="relative flex flex-row justify-between items-center bg-white h-[72px] py-6 px-4 sm:px-8 lg:px-12 w-[100%] z-50">
-      <img class="w-[114.37px] h-[19px]" src="giarddesign.png">
+      <img class="w-[114.37px] h-[19px]" src="/giarddesign.png">
       <button
           class="min-[930px]:hidden flex flex-col gap-[5px]"
           @click="mobileMenuOpen = !mobileMenuOpen"
@@ -379,7 +379,7 @@ const handleImageClick = (e) => {
       <div class="w-full md:w-1/2 aspect-square relative">
         <img
             class="absolute inset-0 w-full h-full object-cover"
-            src="Photo_o_firmie.png"
+            src="/Photo_o_firmie.png"
         />
       </div>
 
@@ -482,7 +482,7 @@ const handleImageClick = (e) => {
     <!------FOOTER------------>
     <div id="footer" class="flex flex-col items-center justify-center bg-black text-white  lg:px-36">
       <div id="footer-top" class=" w-full flex flex-col lg:flex-row justify-between items-center pt-[80px] gap-4">
-        <img class="w-[114.37px] h-[19px]" src="giarddesign_white.png">
+        <img class="w-[114.37px] h-[19px]" src="/giarddesign_white.png">
         <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
           <p>Daj znać, co możemy dla ciebie zrobić!</p>
           <button class="cursor-pointer hover:text-black bg-[#1B5B31] rounded-3xl px-4 text-white pt-[12px] px-[22px] pb-[14px]">Skontaktuj się z nami
@@ -517,7 +517,7 @@ const handleImageClick = (e) => {
 
         <div class="gap-6 flex flex-row">
           <p>Made by</p>
-          <img src="logo-full-light.png">
+          <img src="/logo-full-light.png">
         </div>
 
 
