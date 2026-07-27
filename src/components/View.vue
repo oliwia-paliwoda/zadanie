@@ -130,14 +130,14 @@ const handleImageClick = (e) => {
         class="relative flex flex-row justify-between items-center bg-white h-[72px] py-6 px-4 sm:px-8 lg:px-12 w-[100%] z-50">
       <img class="w-[114.37px] h-[19px]" src="/giarddesign.png">
       <button
-          class="md:hidden flex flex-col gap-[5px]"
+          class="min-[930px]:hidden flex flex-col gap-[5px]"
           @click="mobileMenuOpen = !mobileMenuOpen"
       >
         <span class="w-6 h-[2px] bg-[#111111]"></span>
         <span class="w-6 h-[2px] bg-[#111111]"></span>
         <span class="w-6 h-[2px] bg-[#111111]"></span>
       </button>
-      <div class="hidden md:flex flex-row items-center gap-[48px]">
+      <div class="hidden min-[930px]:flex flex-row items-center gap-[48px]">
         <div class="relative">
           <div
               class="flex items-center justify-center gap-[2px] cursor-pointer"
@@ -147,7 +147,7 @@ const handleImageClick = (e) => {
               Oferta
             </p>
             <svg :class="{ 'rotate-180': ofertaOpen }"
-                 class="transition-transform duration-200" fill="none" height="12" viewBox="0 0 12 12" width="12"
+                 class=" transition-transform duration-200" fill="none" height="12" viewBox="0 0 12 12" width="12"
                  xmlns="http://www.w3.org/2000/svg">
               <path clip-rule="evenodd" d="M2.13017 4.81427C1.95661 4.6407 1.95661 4.3593 2.13017 4.18573C2.28796 4.02794 2.53487 4.0136 2.70887 4.1427L2.75871 4.18573L6 7.42681L9.24129 4.18573C9.39907 4.02794 9.64599 4.0136 9.81998 4.1427L9.86983 4.18573C10.0276 4.34352 10.042 4.59043 9.91286 4.76442L9.86983 4.81427L6.31427 8.36983C6.15648 8.52761 5.90957 8.54196 5.73558 8.41286L5.68573 8.36983L2.13017 4.81427Z"
                     fill="#111111"
@@ -175,11 +175,11 @@ const handleImageClick = (e) => {
           </Transition>
         </div>
 
-        <p class=" text-[14px] font-normal leading-[-150%] tracking-[-0.01em] text-[#111111]">O firmie</p>
+        <p class=" text-[14px] font-normal leading-[-150%] tracking-[-0.01em] text-[#111111] cursor-pointer">O firmie</p>
 
-        <p class=" text-[14px] font-normal leading-[-150%] tracking-[-0.01em] text-[#111111]">Realizacje</p>
+        <p class=" text-[14px] font-normal leading-[-150%] tracking-[-0.01em] text-[#111111] cursor-pointer">Realizacje</p>
 
-        <p class=" text-[14px] font-normal leading-[-150%] tracking-[-0.01em] text-[#111111]">Kontakt</p>
+        <p class=" text-[14px] font-normal leading-[-150%] tracking-[-0.01em] text-[#111111] cursor-pointer">Kontakt</p>
 
         <Transition name="search">
           <input
@@ -191,7 +191,7 @@ const handleImageClick = (e) => {
         </Transition>
 
         <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"
-             @click="searchOpen =!searchOpen">
+             @click="searchOpen =!searchOpen" class="cursor-pointer">
           <path clip-rule="evenodd" d="M10 2.25C5.71979 2.25 2.25 5.71979 2.25 10C2.25 14.2802 5.71979 17.75 10 17.75C11.87 17.75 13.5853 17.0877 14.9242 15.9848L20.4697 21.5303L20.5538 21.6029C20.8474 21.8208 21.2641 21.7966 21.5303 21.5303C21.8232 21.2374 21.8232 20.7626 21.5303 20.4697L15.9848 14.9242C17.0877 13.5853 17.75 11.87 17.75 10C17.75 5.71979 14.2802 2.25 10 2.25ZM10 3.75C13.4518 3.75 16.25 6.54822 16.25 10C16.25 13.4518 13.4518 16.25 10 16.25C6.54822 16.25 3.75 13.4518 3.75 10C3.75 6.54822 6.54822 3.75 10 3.75Z"
                 fill="#111111"
                 fill-rule="evenodd"/>
@@ -202,7 +202,7 @@ const handleImageClick = (e) => {
       <Transition name="dropdown">
         <div
             v-if="mobileMenuOpen"
-            class="md:hidden absolute top-[72px] left-0 w-full bg-white shadow-lg"
+            class="min-[930px]:hidden absolute top-[72px] left-0 w-full bg-white shadow-lg"
         >
           <ul class="flex flex-col p-6 gap-6">
             <li>
@@ -249,27 +249,32 @@ const handleImageClick = (e) => {
     <div class="flex flex-col md:flex-row bg-[#DCC1AB]">
 
       <div class="w-full md:w-1/2 aspect-square flex items-center px-8 py-10 sm:py-4 md:px-20">
-        <div class="text-white">
-          <h1 class="text-[#111111]">Nowoczesna aranżacja
+        <div class="text-white min-w-0 w-full max-w-[700px]">
+          <div>
+          <h1 class="text-[#111111] text-[clamp(2rem,5vw,3rem)] font-[550] my-[44px] ">Nowoczesna aranżacja
             Twojego ogrodu</h1>
 
-          <h3 class="mb-9 text-[#111111]">Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka realizacji.
+          <h3 class="mb-[72px] text-[#111111] font-[400] ">Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka realizacji.
             Oferujemy kompleksowy zakres usług z indywidualnym podejściem do każdego projektu.</h3>
+          </div>
 
 
-          <div id="buttons-row" class="flex flex-row items-center justify-start gap-6 text-sm">
-            <div id="button" class="bg-[#1B5B31] text-white rounded-3xl pt-3 px-6 pb-[14px]">
-              <p> Skontaktuj się z nami</p>
+          <div id="buttons-row" class="flex flex-col min-[1120px]:flex-row items-center justify-start gap-6 text-sm mb-4">
+
+            <div id="button" class="group cursor-pointer bg-[#1B5B31] text-white rounded-3xl pt-3 px-6 pb-[14px] hover:text-black transition-colors">
+              <p class="whitespace-nowrap">Skontaktuj się z nami</p>
             </div>
-            <div id="button"
-                 class="border-[1px] rounded-3xl pt-3 px-6 pb-[14px] flex flex-row gap-2 justify-center items-center text-[#1B5B31]">
-              <p>Zobacz nasze realizacje</p>
-              <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+
+
+            <div id="button" class="group cursor-pointer border-[1px] rounded-3xl pt-3 px-6 pb-[14px] flex flex-row gap-2 justify-center items-center text-[#1B5B31] hover:border-black hover:text-black transition-colors">
+              <p class="whitespace-nowrap">Zobacz nasze realizacje</p>
+
+              <svg class="transition-colors" fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M15.9999 7.99529L15.1042 7.09959L8.63636 13.5769L8.63636 1.02988e-07L7.36352 8.78099e-08L7.36352 13.5675L0.895638 7.09959L-6.09397e-05 7.99529L8.00465 16L15.9999 7.99529Z"
-                    fill="#1B5B31"/>
+                    fill="currentColor"
+                />
               </svg>
-
 
             </div>
 
@@ -293,14 +298,14 @@ const handleImageClick = (e) => {
     <!-------------OFERTA------>
     <div id="oferta"
          class="flex flex-col items-center justify-center bg-[#F5F0EC] w-[100%] h-auto px-12 pt-[120px] pb-[160px] gap-[96px]">
-      <div id="oferta-text" class="h-[60%] w-[80%] flex flex-col gap-10">
+      <div id="oferta-text" class="h-[60%] w-[80%] flex flex-col">
 
-        <div class="font-[30px] text-[#1B5B31] text-sm">
+        <div class="font-[30px] text-[#1B5B31] text-sm mb-[16px]">
           <p>Oferta</p>
         </div>
 
-        <div class="text-[#111111]">
-          <h1>Działamy <i>kompleksowo</i></h1></div>
+        <div class="text-[#111111 mb-[32px]">
+          <h1>Działamy <span class="font-['Inter']"><i>kompleksowo</i></span></h1></div>
 
         <div class="text-[#111111]">
           <h3>Oferujemy kompletną obsługę inwestycji terenów zielonych. Projektujemy nowoczesne ogrody przydomowe oraz
@@ -378,21 +383,21 @@ const handleImageClick = (e) => {
         />
       </div>
 
-      <div class="w-full md:w-1/2 aspect-square flex items-center px-8 py-10 sm:py-4 md:px-20">
+      <div class="w-full md:w-1/2 aspect-square flex items-center px-8 py-10 sm:py-18 md:px-20">
         <div class="text-white">
-          <p class="text-sm mb-2">O firmie</p>
+          <p class="text-sm mb-[16px]">O firmie</p>
 
-          <h1 class="mb-10">Tworzymy z pasją</h1>
+          <h1 class="mb-[40px]">Tworzymy<br> z <span class="font-['Inter']"><i>pasją</i></span></h1>
 
-          <h4 class="mb-9">
+          <h3 class="mb-[72px] font-[300]">
             Każdy projekt to nowe wyzwanie. Dlatego nasz zespół tworzą wykwalifikowani projektanci oraz architekci,
             których zadaniem jest rozpoznanie i realizacja potrzeb każdego Klienta. Nasza specjalizacja to przestrzenie
             nowoczesne, które charakteryzuje minimalizm, geometria i elegancka prostota. Tworzymy ogrody małoobsługowe,
             dostosowane do współczesnego trybu życia.
-          </h4>
+          </h3>
 
-          <button class="border rounded-full px-6 py-3 flex items-center gap-2">
-            <p>Poznaj nas bliżej</p>
+          <button class="group cursor-pointer border rounded-full px-6 py-3 flex items-center gap-2 hover:border-black transition-colors">
+            <p class="group-hover:text-black transition-colors">Poznaj nas bliżej</p>
           </button>
         </div>
       </div>
@@ -402,14 +407,16 @@ const handleImageClick = (e) => {
 
     <div id="realizacje" class="relative bg-[#DCC1AB] w-full ">
 
-      <div id="realizacje-text" class="flex flex-col items-start px-12 pt-[120px] pb-[96px] sm:px-[160px] gap-4">
+      <div id="realizacje-text" class="flex flex-col items-start px-12 pt-[120px] pb-[96px] sm:px-[160px] gap-[16px]">
 
         <div class="text-[14px] text-[#1B5B31]">
           <p>Realizacje</p>
         </div>
 
         <div class="text-black text-xl">
-          <h1>Nasze <i>projekty</i></h1>
+          <h1>
+            Nasze <span class="font-['Inter']"><i>projekty</i></span>
+          </h1>
         </div>
       </div>
 
@@ -433,7 +440,7 @@ const handleImageClick = (e) => {
           </div>
         </div>
 
-        <button class="absolute flex flex-row items-center gap-2 bottom-[10px] border-[1px] border-[black] left-1/2 -translate-y-1/1 -translate-x-1/2 bg-transprent pt-[12px] px-[22px] pb-[14px] rounded-3xl z-1"
+        <button class="hover:font-bold cursor-pointer absolute flex flex-row items-center gap-2 bottom-[10px] border-[1px] border-[black] left-1/2 -translate-y-1/1 -translate-x-1/2 bg-transprent pt-[12px] px-[22px] pb-[14px] rounded-3xl z-1"
                 @click="expandGrid"
         >
           {{ expanded ? 'Zwiń' : 'Rozwiń' }}
@@ -457,15 +464,15 @@ const handleImageClick = (e) => {
     <!----------INSTAGRAM------------>
     <div id="insta" class="w-[100%] h-[auto] flex items-center justify-center px-10 py-12 bg-white">
       <div
-          class="lg:w-[80%] h-[auto] bg-[#1B5B31] flex flex-col lg:flex-row lg:px-24 px-4 py-14 text-white text-xl text-center lg:text-left justify-between">
-        <div id="text-area" class="flex flex-col text-xxl lg:py-26 py-16">
+          class="lg:w-[80%] h-[auto] bg-[#1B5B31] flex flex-col lg:flex-row lg:px-24 px-4 sm:px-8 py-14 text-white text-xl text-center lg:text-left justify-between">
+        <div id="text-area" class="flex flex-col text-xxl lg:py-26 py-16 px-2">
           <h1>Zostańmy w kontakcie!</h1>
           <h1>Znajdziesz nas na <b><i>Instagramie.</i></b></h1>
         </div>
-        <div id="text-area-2" class=" gap-4 flex flex-col text-white lg:items-start items-center justify-center">
+        <div id="text-area-2" class="gap-[24px] flex flex-col text-white lg:items-start items-center justify-center">
           <p>Śledź nasze najnowsze realizacje!</p>
           <button
-              class="bg-white rounded-3xl text-center lg:self-start self-center text-black pt-[12px] px-[22px] pb-[14px]">
+              class="cursor-pointer text-[#1B5B31] hover:text-black bg-white rounded-3xl text-center lg:self-start self-center pt-[12px] px-[22px] pb-[14px]">
             Instagram
           </button>
         </div>
@@ -474,22 +481,22 @@ const handleImageClick = (e) => {
 
     <!------FOOTER------------>
     <div id="footer" class="flex flex-col items-center justify-center bg-black text-white  lg:px-36">
-      <div id="footer-top" class=" w-full flex flex-col lg:flex-row justify-between items-center py-20 gap-4">
+      <div id="footer-top" class=" w-full flex flex-col lg:flex-row justify-between items-center pt-[80px] gap-4">
         <img class="w-[114.37px] h-[19px]" src="/giarddesign_white.png">
         <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
           <p>Daj znać, co możemy dla ciebie zrobić!</p>
-          <button class="bg-[#1B5B31] rounded-3xl px-4 text-white pt-[12px] px-[22px] pb-[14px]">Skontaktuj się z nami
+          <button class="cursor-pointer hover:text-black bg-[#1B5B31] rounded-3xl px-4 text-white pt-[12px] px-[22px] pb-[14px]">Skontaktuj się z nami
           </button>
         </div>
       </div>
-      <div class="h-[1px] bg-[#F5F0EC] w-[80%] lg:w-full mx-10"></div>
+      <div class="h-[1px] my-[62px] bg-[#F5F0EC] w-[80%] lg:w-full mx-10"></div>
 
-      <div id="socials" class="flex flex-col lg:flex-row w-full items-center justify-between py-16 pb-[200px] gap-6">
+      <div id="socials" class="flex flex-col lg:flex-row w-full items-center justify-between pb-[110px] gap-6">
         <div class="gap-6 flex flex-col text-center lg:text-start lg:flex-row">
-          <p>Kontakt</p>
-          <p>Instagram</p>
-          <p>Facebook</p>
-          <p>Linkedin</p>
+          <p class="cursor-pointer ">Kontakt</p>
+          <p class="cursor-pointer">Instagram</p>
+          <p class="cursor-pointer">Facebook</p>
+          <p class="cursor-pointer">Linkedin</p>
         </div>
 
 
@@ -502,7 +509,7 @@ const handleImageClick = (e) => {
       </div>
 
       <div id="footer-bottom"
-           class="flex flex-col lg:flex-row w-full items-center lg:text-start text-center justify-between py-10">
+           class="flex flex-col lg:flex-row w-full items-center lg:text-start text-center justify-between pb-[80px]">
         <div class="gap-6 flex flex-col lg:flex-row">
           <p>Prawa zastrzeżone © 2022</p>
         </div>

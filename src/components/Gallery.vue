@@ -58,7 +58,6 @@ const images = [
 ]
 
 
-// indeks aktualnie oglądanego zdjęcia
 const currentIndex = ref(
     images.findIndex(photo => photo.id === props.photoId)
 )
@@ -84,86 +83,26 @@ const prevImage = () => {
 
 
 <template>
-  <div
-      class="
-      fixed
-      inset-0
-      z-50
-      bg-black/80
-      flex
-      items-center
-      justify-center"
-      @touchstart="handleTouchStart"
-      @touchend="handleTouchEnd"
-  >
+  <div class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center"  @touchstart="handleTouchStart"  @touchend="handleTouchEnd">
 
-    <button
-        class="
-        absolute
-        left-5
-        text-white
-        text-5xl
-        hidden
-        sm:flex"
-        @click="prevImage"
-    >
+    <button class="absolute left-5 text-white text-5xl hidden sm:flex"  @click="prevImage">
       ‹
     </button>
 
 
-    <img
-        :src="currentImage.url"
-        class="
-        max-w-[90vw]
-        max-h-[90vh]
-        object-contain
-        "
-    />
+    <img :src="currentImage.url" class="max-w-[90vw] max-h-[90vh] object-contain"/>
 
 
-    <button
-        class="
-        absolute
-        right-5
-        text-white
-        text-5xl
-        hidden
-        sm:flex"
-        @click="nextImage"
-    >
+    <button class="absolute right-5 text-white  text-5xl hiddensm:flex" @click="nextImage">
       ›
     </button>
 
-    <button
-        class="
-    absolute
-    top-5
-    right-5
-    text-white
-    text-4xl"
-        @click="closeGallery"
+    <button class="absolute top-5 right-5 text-white text-4xl" @click="closeGallery"
     >
       ×
     </button>
 
-    <div
-        class="
-    absolute
-    bottom-8
-    left-1/2
-    -translate-x-1/2
-    text-white
-    text-sm
-    bg-black/40
-    flex
-    items-center
-    text-center
-    px-4
-    py-2
-    rounded-full
-    sm:hidden
-  "
-    >
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-sm bg-black/40 flex items-center text-center px-4 py-2 rounded-full sm:hidden">
       Przesuń palcem, aby przewijać zdjęcia →
     </div>
 
