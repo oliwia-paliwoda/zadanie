@@ -13,23 +13,23 @@ const mobileMenuOpen = ref(false);
 const photoId = ref(null);
 
 const images = [
-  {id: 1, url: "/Photo_realizacje (1).png"},
-  {id: 2, url: "/Photo_realizacje (2).png"},
-  {id: 3, url: "/Photo_realizacje (3).png"},
-  {id: 4, url: "/Photo_realizacje (5).png"},
-  {id: 5, url: "/Photo_realizacje (6).png"},
-  {id: 6, url: "/Photo_realizacje (7).png"},
-  {id: 7, url: "/Photo_realizacje (8).png"},
-  {id: 8, url: "/Photo_realizacje (9).png"},
-  {id: 9, url: "/Photo_realizacje (10).png"},
-  {id: 10, url: "/Photo_realizacje (11).png"},
-  {id: 11, url: "/Photo_realizacje (12).png"},
-  {id: 12, url: "/Photo_realizacje (13).png"},
-  {id: 13, url: "/Photo_realizacje (14).png"},
-  {id: 14, url: "/Photo_realizacje (15).png"},
-  {id: 15, url: "/Photo_realizacje (16).png"},
-  {id: 16, url: "/Photo_realizacje (17).png"},
-  {id: 17, url: "/Photo_realizacje (18).png"},
+  {id: 1, url: "/zadanie/Photo_realizacje (1).png"},
+  {id: 2, url: "/zadanie/Photo_realizacje (2).png"},
+  {id: 3, url: "/zadanie/Photo_realizacje (3).png"},
+  {id: 4, url: "/zadanie/Photo_realizacje (5).png"},
+  {id: 5, url: "/zadanie/Photo_realizacje (6).png"},
+  {id: 6, url: "/zadanie/Photo_realizacje (7).png"},
+  {id: 7, url: "/zadanie/Photo_realizacje (8).png"},
+  {id: 8, url: "/zadanie/Photo_realizacje (9).png"},
+  {id: 9, url: "/zadanie/Photo_realizacje (10).png"},
+  {id: 10, url: "/zadanie/Photo_realizacje (11).png"},
+  {id: 11, url: "/zadanie/Photo_realizacje (12).png"},
+  {id: 12, url: "/zadanie/Photo_realizacje (13).png"},
+  {id: 13, url: "/zadanie/Photo_realizacje (14).png"},
+  {id: 14, url: "/zadanie/Photo_realizacje (15).png"},
+  {id: 15, url: "/zadanie/Photo_realizacje (16).png"},
+  {id: 16, url: "/zadanie/Photo_realizacje (17).png"},
+  {id: 17, url: "/zadanie/Photo_realizacje (18).png"},
 ]
 
 
@@ -60,8 +60,8 @@ const expandGrid = () => {
 }
 
 const imagesSlider = [
-  {id: 1, url: "/Photo.png"},
-  {id: 2, url: "/Photo-kopia.png"}
+  {id: 1, url: "/zadanie/Photo.png"},
+  {id: 2, url: "/zadanie/Photo-kopia.png"}
 ]
 
 const currentImage = ref(0)
@@ -128,7 +128,7 @@ const handleImageClick = (e) => {
     <!-----------------NAVI-------------------------->
     <div
         class="relative flex flex-row justify-between items-center bg-white h-[72px] py-6 px-4 sm:px-8 lg:px-12 w-[100%] z-50">
-      <img class="w-[114.37px] h-[19px]" src="/giarddesign.png">
+      <img class="w-[114.37px] h-[19px]" src="/zadanie/giarddesign.png">
       <button
           class="min-[930px]:hidden flex flex-col gap-[5px]"
           @click="mobileMenuOpen = !mobileMenuOpen"
@@ -379,7 +379,7 @@ const handleImageClick = (e) => {
       <div class="w-full md:w-1/2 aspect-square relative">
         <img
             class="absolute inset-0 w-full h-full object-cover"
-            src="/Photo_o_firmie.png"
+            src="/zadanie/Photo_o_firmie.png"
         />
       </div>
 
@@ -482,7 +482,7 @@ const handleImageClick = (e) => {
     <!------FOOTER------------>
     <div id="footer" class="flex flex-col items-center justify-center bg-black text-white  lg:px-36">
       <div id="footer-top" class=" w-full flex flex-col lg:flex-row justify-between items-center pt-[80px] gap-4">
-        <img class="w-[114.37px] h-[19px]" src="/giarddesign_white.png">
+        <img class="w-[114.37px] h-[19px]" src="/zadanie/giarddesign_white.png">
         <div class="flex flex-col lg:flex-row gap-4 items-center justify-center">
           <p>Daj znać, co możemy dla ciebie zrobić!</p>
           <button class="cursor-pointer hover:text-black bg-[#1B5B31] rounded-3xl px-4 text-white pt-[12px] px-[22px] pb-[14px]">Skontaktuj się z nami
@@ -517,7 +517,7 @@ const handleImageClick = (e) => {
 
         <div class="gap-6 flex flex-row">
           <p>Made by</p>
-          <img src="/logo-full-light.png">
+          <img src="/zadanie/logo-full-light.png">
         </div>
 
 
